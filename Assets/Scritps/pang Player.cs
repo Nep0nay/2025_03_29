@@ -1,4 +1,8 @@
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class pangPlayer : MonoBehaviour
 {
@@ -8,6 +12,8 @@ public class pangPlayer : MonoBehaviour
     [SerializeField]
     private Sprite[] walkSprites;
 
+    private STATE _currentState;
+    private float _Speed = 3f;
     public enum STATE
     {
         IDLE, //가만히 서 있는 상태
@@ -15,39 +21,38 @@ public class pangPlayer : MonoBehaviour
         HITTED,
 
     }
-    private STATE _currentState;
-
-    private float _Speed = 3;
+    
     void Awake()
     {
-       _currentState = STATE.IDLE;
+        _currentState = STATE.IDLE;
+        
     }
-
     private void IDLE_Action()
     {
 
     }
-
-
-    void Update()
+    private void Walk_Action()
     {
 
+    }
+    void Update()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * Time.deltaTime * _Speed;
+            transform.rotation = Quaternion.Euler(0, 180, 0); //왼쪽 방향 바라보기
         }
-
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * Time.deltaTime * _Speed;
-
+            transform.rotation = Quaternion.Euler(0, 0, 0); // 오른쪽 방향 바라보기
         }
 
-        switch( _currentState )
+        switch (_currentState)
         {
             case STATE.IDLE:
                 IDLE_Action();
-                    break;
+                break;
             case STATE.WALK:
                 IDLE_Action();
                 break;
@@ -65,4 +70,5 @@ public class pangPlayer : MonoBehaviour
             _currentState = STATE.HITTED;
         }
     }
-}
+    
+} 

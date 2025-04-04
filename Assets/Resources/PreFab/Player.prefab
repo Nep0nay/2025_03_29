@@ -114,3 +114,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5480b347e27b5074da20bc4efbd8d6d6, type: 3}
   - {fileID: 21300000, guid: 9306e39f0f362e24888908e2bc7ab52a, type: 3}
   - {fileID: 21300000, guid: f20355d64c1efe249bc0de4d35a8cf0f, type: 3}
+  frameTime: 0.1
+  spriteRenderer: {fileID: 8623485171968140185}
