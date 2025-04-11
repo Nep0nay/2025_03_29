@@ -104,13 +104,13 @@ public class pangPlayer : MonoBehaviour
         {
             transform.position += Vector3.left * Time.deltaTime * _Speed;
             _currentState = STATE.WALK;
-            _render.flipX = true; //왼쪽 바라보기
+            _render.flipX = true; //좌우반전
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * Time.deltaTime * _Speed;
             _currentState = STATE.WALK;
-            _render.flipX = false; //오른쪽 바라보기
+            _render.flipX = false; //원래대로
         }
         else
         {

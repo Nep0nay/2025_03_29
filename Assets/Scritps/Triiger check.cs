@@ -12,8 +12,13 @@ public class Triigercheck : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("½ÇÇà‰Î");
+        Debug.Log("OnCollisionEnter2D : " + other.gameObject.name);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("OnTriggerEnter2D : " + other.gameObject.name);
+
     }
 }
